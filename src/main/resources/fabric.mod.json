@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": "worldofdye",
+  "version": "${version}",
+
+  "name": "World of Dyes",
+  "description": "Adds World of Colors Bta blocks in NoName Dyes colors!",
+  "authors": [
+    "Bread (with a lot of help)"
+  ],
+  "contact": {
+    "homepage": "",
+    "sources": ""
+  },
+
+	"icon": "icon.png",
+  "license": "CC0-1.0",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+			"cursedbread.worldofdye.WoDMain"
+    ],
+		"beforeGameStart": [
+			"cursedbread.worldofdye.WoDMain"
+		],
+		"afterGameStart": [
+			"cursedbread.worldofdye.WoDMain"
+		],
+		"recipesReady": [
+			"cursedbread.worldofdye.WoDMain"
+		]
+	},
+  "mixins": [
+      "worldofdye.mixins.json"
+  ],
+
+  "depends": {
+		"minecraft": "^7.2-beta",
+    "fabricloader": ">=0.15.5"
+  },
+  "suggests": {
+  }
+}
