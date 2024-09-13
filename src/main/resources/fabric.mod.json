@@ -28,7 +28,7 @@
 			"cursedbread.worldofdye.WoDMain"
 		],
 		"recipesReady": [
-			"cursedbread.worldofdye.WoDMain"
+			"cursedbread.worldofdye.WoDCrafts"
 		]
 	},
   "mixins": [
