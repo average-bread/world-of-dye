@@ -1,13 +1,16 @@
 package cursedbread.worldofdye;
 
 
+import cursedbread.worldofdye.models.*;
 import luke.color.ColorItems;
 import luke.color.block.BlockConcrete;
 import luke.color.blockmodel.BlockModelConcretePainted;
 import luke.color.blockmodel.BlockModelOrangeBed;
+import net.minecraft.client.render.block.model.BlockModelSeat;
 import net.minecraft.client.render.block.model.BlockModelStandard;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.block.BlockBed;
+import net.minecraft.core.block.BlockSeat;
 import net.minecraft.core.block.entity.TileEntity;
 import net.minecraft.core.block.material.Material;
 import net.minecraft.core.block.tag.BlockTags;
@@ -83,13 +86,13 @@ public class WoDBlocks {
 	public static Block seatViridian;
 
 	public void initializeBlocks() {
-		BlockBuilder powder = new BlockBuilder(MOD_ID)
+		BlockBuilder powder = new BlockBuilder(WoDMain.MOD_ID)
 			.setBlockSound(new BlockSound("step.sand", "step.sand", 1.0f, 0.8f))
 			.setHardness(0.5f)
 			.setResistance(0.5f)
 			.setTags(BlockTags.MINEABLE_BY_SHOVEL);
 
-		BlockBuilder bed = new BlockBuilder(MOD_ID)
+		BlockBuilder bed = new BlockBuilder(WoDMain.MOD_ID)
 			.setBlockSound(new BlockSound("step.wood", "step.wood", 1.0f, 1.0f))
 			.setHardness(0.2f)
 			.setResistance(1.0f)
@@ -97,7 +100,7 @@ public class WoDBlocks {
 			.setVisualUpdateOnMetadata()
 			.setTags(BlockTags.MINEABLE_BY_AXE, BlockTags.NOT_IN_CREATIVE_MENU);
 
-		BlockBuilder concrete = new BlockBuilder(MOD_ID)
+		BlockBuilder concrete = new BlockBuilder(WoDMain.MOD_ID)
 			.setHardness(5.0f)
 			.setResistance(25.0f)
 			.setBlockModel(BlockModelConcretePainted::new)
@@ -206,13 +209,220 @@ public class WoDBlocks {
 			.setBlockModel(block -> new BlockModelStandard<>(block).withTextures("worldofdye:block/powder_viridian"))
 			.build(new cursedbread.worldofdye.WoDPowder("concrete.powder.viridian", WoDMain.blockId++,13));
 
-		/*bedCrimson = bed
-			.setBlockModel(BlockModelOrangeBed::new)
+		//beds
+
+		bedCrimson = bed
+			.setBlockModel(BlockModelCrimsonBed::new)
 			.build(new BlockBed("bed.crimson", WoDMain.blockId++) {
 				public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {
-					return new ItemStack[]{new ItemStack(ColorItems.bedCrimson)};
+					return new ItemStack[]{new ItemStack(WoDItems.bedCrimson)};
 				}
-			});*/
+			});
+		bedMaroon = bed
+			.setBlockModel(BlockModelMaroonBed::new)
+			.build(new BlockBed("bed.maroon", WoDMain.blockId++) {
+				public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {
+					return new ItemStack[]{new ItemStack(WoDItems.bedMaroon)};
+				}
+			});
+		bedAshGray = bed
+			.setBlockModel(BlockModelAshGrayBed::new)
+			.build(new BlockBed("bed.ashgray", WoDMain.blockId++) {
+				public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {
+					return new ItemStack[]{new ItemStack(WoDItems.bedAshGray)};
+				}
+			});
+		bedOlive = bed
+			.setBlockModel(BlockModelOliveBed::new)
+			.build(new BlockBed("bed.olive", WoDMain.blockId++) {
+				public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {
+					return new ItemStack[]{new ItemStack(WoDItems.bedOlive)};
+				}
+			});
+		bedOchre = bed
+			.setBlockModel(BlockModelOchreBed::new)
+			.build(new BlockBed("bed.ochre", WoDMain.blockId++) {
+				public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {
+					return new ItemStack[]{new ItemStack(WoDItems.bedOchre)};
+				}
+			});
+		bedBuff = bed
+			.setBlockModel(BlockModelBuffBed::new)
+			.build(new BlockBed("bed.buff", WoDMain.blockId++) {
+				public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {
+					return new ItemStack[]{new ItemStack(WoDItems.bedBuff)};
+				}
+			});
+		bedVerdigris = bed
+			.setBlockModel(BlockModelVerdigrisBed::new)
+			.build(new BlockBed("bed.verdigris", WoDMain.blockId++) {
+				public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {
+					return new ItemStack[]{new ItemStack(WoDItems.bedVerdigris)};
+				}
+			});
+		bedLightYellow = bed
+			.setBlockModel(BlockModelLightYellowBed::new)
+			.build(new BlockBed("bed.lightyellow", WoDMain.blockId++) {
+				public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {
+					return new ItemStack[]{new ItemStack(WoDItems.bedLightYellow)};
+				}
+			});
+		bedIndigo = bed
+			.setBlockModel(BlockModelIndigoBed::new)
+			.build(new BlockBed("bed.indigo", WoDMain.blockId++) {
+				public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {
+					return new ItemStack[]{new ItemStack(WoDItems.bedIndigo)};
+				}
+			});
+		bedXanthic = bed
+			.setBlockModel(BlockModelXanthicBed::new)
+			.build(new BlockBed("bed.xanthic", WoDMain.blockId++) {
+				public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {
+					return new ItemStack[]{new ItemStack(WoDItems.bedXanthic)};
+				}
+			});
+		bedCinnamon = bed
+			.setBlockModel(BlockModelCinnamonBed::new)
+			.build(new BlockBed("bed.cinnamon", WoDMain.blockId++) {
+				public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {
+					return new ItemStack[]{new ItemStack(WoDItems.bedCinnamon)};
+				}
+			});
+		bedNavyBlue = bed
+			.setBlockModel(BlockModelNavyBlueBed::new)
+			.build(new BlockBed("bed.navyblue", WoDMain.blockId++) {
+				public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {
+					return new ItemStack[]{new ItemStack(WoDItems.bedNavyBlue)};
+				}
+			});
+		bedRoyalPurple = bed
+			.setBlockModel(BlockModelRoyalPurpleBed::new)
+			.build(new BlockBed("bed.royalpurple", WoDMain.blockId++) {
+				public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {
+					return new ItemStack[]{new ItemStack(WoDItems.bedRoyalPurple)};
+				}
+			});
+		bedViridian = bed
+			.setBlockModel(BlockModelViridianBed::new)
+			.build(new BlockBed("bed.viridian", WoDMain.blockId++) {
+				public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {
+					return new ItemStack[]{new ItemStack(WoDItems.bedViridian)};
+				}
+			});
+
+		//seats
+
+		seatCrimson = bed
+			.setBlockModel(block -> new BlockModelSeat<>(block).withTextures("worldofdye:block/seat/seat_crimson_top", "minecraft:block/planks_oak", "worldofdye:block/bed/bed_crimson_foot_front"))
+			.build(new BlockSeat("seat.crimson", WoDMain.blockId++) {
+				public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {
+					return new ItemStack[]{new ItemStack(WoDItems.seatCrimson)};
+				}
+			});
+
+		seatMaroon = bed
+			.setBlockModel(block -> new BlockModelSeat<>(block).withTextures("worldofdye:block/seat/seat_maroon_top", "minecraft:block/planks_oak", "worldofdye:block/bed/bed_maroon_foot_front"))
+			.build(new BlockSeat("seat.maroon", WoDMain.blockId++) {
+				public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {
+					return new ItemStack[]{new ItemStack(WoDItems.seatMaroon)};
+				}
+			});
+
+		seatAshGray = bed
+			.setBlockModel(block -> new BlockModelSeat<>(block).withTextures("worldofdye:block/seat/seat_ash_gray_top", "minecraft:block/planks_oak", "worldofdye:block/bed/bed_ash_gray_foot_front"))
+			.build(new BlockSeat("seat.ashgray", WoDMain.blockId++) {
+				public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {
+					return new ItemStack[]{new ItemStack(WoDItems.seatAshGray)};
+				}
+			});
+
+		seatOlive = bed
+			.setBlockModel(block -> new BlockModelSeat<>(block).withTextures("worldofdye:block/seat/seat_olive_top", "minecraft:block/planks_oak", "worldofdye:block/bed/bed_olive_foot_front"))
+			.build(new BlockSeat("seat.olive", WoDMain.blockId++) {
+				public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {
+					return new ItemStack[]{new ItemStack(WoDItems.seatOlive)};
+				}
+			});
+
+		seatOchre = bed
+			.setBlockModel(block -> new BlockModelSeat<>(block).withTextures("worldofdye:block/seat/seat_ochre_top", "minecraft:block/planks_oak", "worldofdye:block/bed/bed_ochre_foot_front"))
+			.build(new BlockSeat("seat.ochre", WoDMain.blockId++) {
+				public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {
+					return new ItemStack[]{new ItemStack(WoDItems.seatOchre)};
+				}
+			});
+
+		seatBuff = bed
+			.setBlockModel(block -> new BlockModelSeat<>(block).withTextures("worldofdye:block/seat/seat_buff_top", "minecraft:block/planks_oak", "worldofdye:block/bed/bed_buff_foot_front"))
+			.build(new BlockSeat("seat.buff", WoDMain.blockId++) {
+				public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {
+					return new ItemStack[]{new ItemStack(WoDItems.seatBuff)};
+				}
+			});
+
+		seatVerdigris = bed
+			.setBlockModel(block -> new BlockModelSeat<>(block).withTextures("worldofdye:block/seat/seat_verdigris_top", "minecraft:block/planks_oak", "worldofdye:block/bed/bed_verdigris_foot_front"))
+			.build(new BlockSeat("seat.verdigris", WoDMain.blockId++) {
+				public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {
+					return new ItemStack[]{new ItemStack(WoDItems.seatVerdigris)};
+				}
+			});
+
+		seatLightYellow = bed
+			.setBlockModel(block -> new BlockModelSeat<>(block).withTextures("worldofdye:block/seat/seat_light_yellow_top", "minecraft:block/planks_oak", "worldofdye:block/bed/bed_light_yellow_foot_front"))
+			.build(new BlockSeat("seat.lightyellow", WoDMain.blockId++) {
+				public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {
+					return new ItemStack[]{new ItemStack(WoDItems.seatLightYellow)};
+				}
+			});
+
+		seatIndigo = bed
+			.setBlockModel(block -> new BlockModelSeat<>(block).withTextures("worldofdye:block/seat/seat_indigo_top", "minecraft:block/planks_oak", "worldofdye:block/bed/bed_indigo_foot_front"))
+			.build(new BlockSeat("seat.indigo", WoDMain.blockId++) {
+				public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {
+					return new ItemStack[]{new ItemStack(WoDItems.seatIndigo)};
+				}
+			});
+
+		seatXanthic = bed
+			.setBlockModel(block -> new BlockModelSeat<>(block).withTextures("worldofdye:block/seat/seat_xanthic_top", "minecraft:block/planks_oak", "worldofdye:block/bed/bed_xanthic_foot_front"))
+			.build(new BlockSeat("seat.xanthic", WoDMain.blockId++) {
+				public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {
+					return new ItemStack[]{new ItemStack(WoDItems.seatXanthic)};
+				}
+			});
+
+		seatCinnamon = bed
+			.setBlockModel(block -> new BlockModelSeat<>(block).withTextures("worldofdye:block/seat/seat_cinnamon_top", "minecraft:block/planks_oak", "worldofdye:block/bed/bed_cinnamon_foot_front"))
+			.build(new BlockSeat("seat.cinnamon", WoDMain.blockId++) {
+				public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {
+					return new ItemStack[]{new ItemStack(WoDItems.seatCinnamon)};
+				}
+			});
+
+		seatNavyBlue = bed
+			.setBlockModel(block -> new BlockModelSeat<>(block).withTextures("worldofdye:block/seat/seat_navy_blue_top", "minecraft:block/planks_oak", "worldofdye:block/bed/bed_navy_blue_foot_front"))
+			.build(new BlockSeat("seat.navyblue", WoDMain.blockId++) {
+				public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {
+					return new ItemStack[]{new ItemStack(WoDItems.seatNavyBlue)};
+				}
+			});
+
+		seatRoyalPurple = bed
+			.setBlockModel(block -> new BlockModelSeat<>(block).withTextures("worldofdye:block/seat/seat_royal_purple_top", "minecraft:block/planks_oak", "worldofdye:block/bed/bed_royal_purple_foot_front"))
+			.build(new BlockSeat("seat.royalpurple", WoDMain.blockId++) {
+				public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {
+					return new ItemStack[]{new ItemStack(WoDItems.seatRoyalPurple)};
+				}
+			});
+
+		seatViridian = bed
+			.setBlockModel(block -> new BlockModelSeat<>(block).withTextures("worldofdye:block/seat/seat_viridian_top", "minecraft:block/planks_oak", "worldofdye:block/bed/bed_viridian_foot_front"))
+			.build(new BlockSeat("seat.viridian", WoDMain.blockId++) {
+				public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {
+					return new ItemStack[]{new ItemStack(WoDItems.seatViridian)};
+				}
+			});
 	}
 
 }

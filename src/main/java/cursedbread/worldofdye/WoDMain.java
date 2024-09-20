@@ -34,8 +34,8 @@ public class WoDMain implements ModInitializer, GameStartEntrypoint {
 
 	@Override
 	public void beforeGameStart() {
-		new WoDItems().initilizeItems();
 		new WoDBlocks().initializeBlocks();
+		new WoDItems().initilizeItems();
 	}
 
 	@Override
