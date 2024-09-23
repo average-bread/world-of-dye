@@ -2,8 +2,10 @@ package cursedbread.worldofdye;
 
 import luke.color.ColorBlocks;
 import luke.color.item.ItemColorBed;
+import net.minecraft.core.block.tag.BlockTags;
 import net.minecraft.core.item.Item;
 import net.minecraft.core.item.ItemPlaceable;
+import net.minecraft.core.item.tag.ItemTags;
 import turniplabs.halplibe.helper.ItemBuilder;
 
 import static luke.color.ColorMod.MOD_ID;
