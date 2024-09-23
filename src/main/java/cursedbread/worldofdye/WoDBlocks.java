@@ -106,51 +106,6 @@ public class WoDBlocks {
 			.setBlockModel(BlockModelConcretePainted::new)
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE);
 
-		//concrete
-
-		concreteCrimson = concrete
-			.setBlockModel(block -> new BlockModelStandard<>(block).withTextures("worldofdye:block/concrete_crimson"))
-			.build(new Block("concrete.crimson", WoDMain.blockId++, Material.stone));
-		concreteMaroon = concrete
-			.setBlockModel(block -> new BlockModelStandard<>(block).withTextures("worldofdye:block/concrete_maroon"))
-			.build(new Block("concrete.maroon", WoDMain.blockId++, Material.stone));
-		concreteAshGray = concrete
-			.setBlockModel(block -> new BlockModelStandard<>(block).withTextures("worldofdye:block/concrete_ash_gray"))
-			.build(new Block("concrete.ashgray", WoDMain.blockId++, Material.stone));
-		concreteOlive = concrete
-			.setBlockModel(block -> new BlockModelStandard<>(block).withTextures("worldofdye:block/concrete_olive"))
-			.build(new Block("concrete.olive", WoDMain.blockId++, Material.stone));
-		concreteOchre = concrete
-			.setBlockModel(block -> new BlockModelStandard<>(block).withTextures("worldofdye:block/concrete_ochre"))
-			.build(new Block("concrete.ochre", WoDMain.blockId++, Material.stone));
-		concreteBuff = concrete
-			.setBlockModel(block -> new BlockModelStandard<>(block).withTextures("worldofdye:block/concrete_buff"))
-			.build(new Block("concrete.buff", WoDMain.blockId++, Material.stone));
-		concreteVerdigris = concrete
-			.setBlockModel(block -> new BlockModelStandard<>(block).withTextures("worldofdye:block/concrete_verdigris"))
-			.build(new Block("concrete.verdigris", WoDMain.blockId++, Material.stone));
-		concreteLightYellow = concrete
-			.setBlockModel(block -> new BlockModelStandard<>(block).withTextures("worldofdye:block/concrete_light_yellow"))
-			.build(new Block("concrete.lightyellow", WoDMain.blockId++, Material.stone));
-		concreteIndigo = concrete
-			.setBlockModel(block -> new BlockModelStandard<>(block).withTextures("worldofdye:block/concrete_indigo"))
-			.build(new Block("concrete.indigo", WoDMain.blockId++, Material.stone));
-		concreteXanthic = concrete
-			.setBlockModel(block -> new BlockModelStandard<>(block).withTextures("worldofdye:block/concrete_xanthic"))
-			.build(new Block("concrete.xanthic", WoDMain.blockId++, Material.stone));
-		concreteCinnamon = concrete
-			.setBlockModel(block -> new BlockModelStandard<>(block).withTextures("worldofdye:block/concrete_cinnamon"))
-			.build(new Block("concrete.cinnamon", WoDMain.blockId++, Material.stone));
-		concreteNavyBlue = concrete
-			.setBlockModel(block -> new BlockModelStandard<>(block).withTextures("worldofdye:block/concrete_navy_blue"))
-			.build(new Block("concrete.navyblue", WoDMain.blockId++, Material.stone));
-		concreteRoyalPurple = concrete
-			.setBlockModel(block -> new BlockModelStandard<>(block).withTextures("worldofdye:block/concrete_royal_purple"))
-			.build(new Block("concrete.royalpurple", WoDMain.blockId++, Material.stone));
-		concreteViridian = concrete
-			.setBlockModel(block -> new BlockModelStandard<>(block).withTextures("worldofdye:block/concrete_viridian"))
-			.build(new Block("concrete.viridian", WoDMain.blockId++, Material.stone));
-
 		//powder
 
 		concretePowderCrimson = powder
@@ -208,6 +163,51 @@ public class WoDBlocks {
 		concretePowderViridian = powder
 			.setBlockModel(block -> new BlockModelStandard<>(block).withTextures("worldofdye:block/powder_viridian"))
 			.build(new cursedbread.worldofdye.WoDPowder("concrete.powder.viridian", WoDMain.blockId++,13));
+
+		//concrete
+
+		concreteCrimson = concrete
+			.setBlockModel(block -> new BlockModelStandard<>(block).withTextures("worldofdye:block/concrete_crimson"))
+			.build(new Block("concrete.crimson", WoDMain.blockId++, Material.stone));
+		concreteMaroon = concrete
+			.setBlockModel(block -> new BlockModelStandard<>(block).withTextures("worldofdye:block/concrete_maroon"))
+			.build(new Block("concrete.maroon", WoDMain.blockId++, Material.stone));
+		concreteAshGray = concrete
+			.setBlockModel(block -> new BlockModelStandard<>(block).withTextures("worldofdye:block/concrete_ash_gray"))
+			.build(new Block("concrete.ashgray", WoDMain.blockId++, Material.stone));
+		concreteOlive = concrete
+			.setBlockModel(block -> new BlockModelStandard<>(block).withTextures("worldofdye:block/concrete_olive"))
+			.build(new Block("concrete.olive", WoDMain.blockId++, Material.stone));
+		concreteOchre = concrete
+			.setBlockModel(block -> new BlockModelStandard<>(block).withTextures("worldofdye:block/concrete_ochre"))
+			.build(new Block("concrete.ochre", WoDMain.blockId++, Material.stone));
+		concreteBuff = concrete
+			.setBlockModel(block -> new BlockModelStandard<>(block).withTextures("worldofdye:block/concrete_buff"))
+			.build(new Block("concrete.buff", WoDMain.blockId++, Material.stone));
+		concreteVerdigris = concrete
+			.setBlockModel(block -> new BlockModelStandard<>(block).withTextures("worldofdye:block/concrete_verdigris"))
+			.build(new Block("concrete.verdigris", WoDMain.blockId++, Material.stone));
+		concreteLightYellow = concrete
+			.setBlockModel(block -> new BlockModelStandard<>(block).withTextures("worldofdye:block/concrete_light_yellow"))
+			.build(new Block("concrete.lightyellow", WoDMain.blockId++, Material.stone));
+		concreteIndigo = concrete
+			.setBlockModel(block -> new BlockModelStandard<>(block).withTextures("worldofdye:block/concrete_indigo"))
+			.build(new Block("concrete.indigo", WoDMain.blockId++, Material.stone));
+		concreteXanthic = concrete
+			.setBlockModel(block -> new BlockModelStandard<>(block).withTextures("worldofdye:block/concrete_xanthic"))
+			.build(new Block("concrete.xanthic", WoDMain.blockId++, Material.stone));
+		concreteCinnamon = concrete
+			.setBlockModel(block -> new BlockModelStandard<>(block).withTextures("worldofdye:block/concrete_cinnamon"))
+			.build(new Block("concrete.cinnamon", WoDMain.blockId++, Material.stone));
+		concreteNavyBlue = concrete
+			.setBlockModel(block -> new BlockModelStandard<>(block).withTextures("worldofdye:block/concrete_navy_blue"))
+			.build(new Block("concrete.navyblue", WoDMain.blockId++, Material.stone));
+		concreteRoyalPurple = concrete
+			.setBlockModel(block -> new BlockModelStandard<>(block).withTextures("worldofdye:block/concrete_royal_purple"))
+			.build(new Block("concrete.royalpurple", WoDMain.blockId++, Material.stone));
+		concreteViridian = concrete
+			.setBlockModel(block -> new BlockModelStandard<>(block).withTextures("worldofdye:block/concrete_viridian"))
+			.build(new Block("concrete.viridian", WoDMain.blockId++, Material.stone));
 
 		//beds
 

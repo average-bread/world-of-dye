@@ -1,16 +1,65 @@
 package cursedbread.worldofdye;
 
 import goocraft4evr.nonamedyes.block.ModBlocks;
+import goocraft4evr.nonamedyes.crafting.RecipeBuilderBleacher;
 import goocraft4evr.nonamedyes.item.ModItems;
 import luke.color.ColorBlocks;
 import luke.color.ColorItems;
 import net.minecraft.core.block.Block;
+import net.minecraft.core.data.registry.Registries;
 import net.minecraft.core.item.Item;
 import net.minecraft.core.item.ItemStack;
 import turniplabs.halplibe.helper.recipeBuilders.RecipeBuilderShaped;
 import turniplabs.halplibe.util.RecipeEntrypoint;
 
 public class WoDCrafts implements RecipeEntrypoint {
+
+	@Override
+	public void initNamespaces() {
+		Registries.ITEM_GROUPS.register("wod:powder", Registries.stackListOf(
+			ColorBlocks.concretePowderWhite, ColorBlocks.concretePowderOrange, ColorBlocks.concretePowderMagenta,
+			ColorBlocks.concretePowderLightblue, ColorBlocks.concretePowderYellow, ColorBlocks.concretePowderLime,
+			ColorBlocks.concretePowderPink, ColorBlocks.concretePowderGray, ColorBlocks.concretePowderSilver,
+			ColorBlocks.concretePowderCyan, ColorBlocks.concretePowderPurple, ColorBlocks.concretePowderBlue,
+			ColorBlocks.concretePowderBrown, ColorBlocks.concretePowderGreen, ColorBlocks.concretePowderRed,
+			ColorBlocks.concretePowderBlack, WoDBlocks.concretePowderCrimson, WoDBlocks.concretePowderMaroon,
+			WoDBlocks.concretePowderAshGray, WoDBlocks.concretePowderOlive, WoDBlocks.concretePowderOchre,
+			WoDBlocks.concretePowderBuff, WoDBlocks.concretePowderVerdigris, WoDBlocks.concretePowderLightYellow,
+			WoDBlocks.concretePowderIndigo, WoDBlocks.concretePowderXanthic, WoDBlocks.concretePowderCinnamon,
+			WoDBlocks.concretePowderNavyBlue, WoDBlocks.concretePowderRoyalPurple, WoDBlocks.concretePowderViridian
+		));
+		Registries.ITEM_GROUPS.register("wod:concrete", Registries.stackListOf(
+			ColorBlocks.concrete, WoDBlocks.concreteCrimson, WoDBlocks.concreteMaroon,
+			WoDBlocks.concreteAshGray, WoDBlocks.concreteOlive, WoDBlocks.concreteOchre,
+			WoDBlocks.concreteBuff, WoDBlocks.concreteVerdigris, WoDBlocks.concreteLightYellow,
+			WoDBlocks.concreteIndigo, WoDBlocks.concreteXanthic, WoDBlocks.concreteCinnamon,
+			WoDBlocks.concreteNavyBlue, WoDBlocks.concreteRoyalPurple, WoDBlocks.concreteViridian
+		));
+		Registries.ITEM_GROUPS.register("wod:bed", Registries.stackListOf(
+			ColorItems.bedWhite, ColorItems.bedOrange, ColorItems.bedMagenta,
+			ColorItems.bedLightblue, ColorItems.bedYellow, ColorItems.bedLime,
+			ColorItems.bedPink, ColorItems.bedGray, ColorItems.bedSilver,
+			ColorItems.bedCyan, ColorItems.bedPurple, ColorItems.bedBlue,
+			ColorItems.bedBrown, ColorItems.bedGreen, Item.bed,
+			ColorItems.bedBlack, WoDItems.bedCrimson, WoDItems.bedMaroon,
+			WoDItems.bedAshGray, WoDItems.bedOlive, WoDItems.bedOchre,
+			WoDItems.bedBuff, WoDItems.bedVerdigris, WoDItems.bedLightYellow,
+			WoDItems.bedIndigo, WoDItems.bedXanthic, WoDItems.bedCinnamon,
+			WoDItems.bedNavyBlue, WoDItems.bedRoyalPurple, WoDItems.bedViridian
+		));
+		Registries.ITEM_GROUPS.register("wod:seat", Registries.stackListOf(
+			ColorItems.seatWhite, ColorItems.seatOrange, ColorItems.seatMagenta,
+			ColorItems.seatLightblue, ColorItems.seatYellow, ColorItems.seatLime,
+			ColorItems.seatPink, ColorItems.seatGray, ColorItems.seatSilver,
+			ColorItems.seatCyan, ColorItems.seatPurple, ColorItems.seatBlue,
+			ColorItems.seatBrown, ColorItems.seatGreen, Item.seat,
+			ColorItems.seatBlack, WoDItems.seatCrimson, WoDItems.seatMaroon,
+			WoDItems.seatAshGray, WoDItems.seatOlive, WoDItems.seatOchre,
+			WoDItems.seatBuff, WoDItems.seatVerdigris, WoDItems.seatLightYellow,
+			WoDItems.seatIndigo, WoDItems.seatXanthic, WoDItems.seatCinnamon,
+			WoDItems.seatNavyBlue, WoDItems.seatRoyalPurple, WoDItems.seatViridian
+		));
+	}
 
 	public static Block[] nndconcrede = {
 		WoDBlocks.concretePowderCrimson,
@@ -85,10 +134,18 @@ public class WoDCrafts implements RecipeEntrypoint {
 				.addInput('W', new ItemStack(ModBlocks.wool, 1, k))
 				.create("white_seat", new ItemStack(nndseat[k], 1));
 		}
-	}
 
-	@Override
-	public void initNamespaces() {
-
+		new RecipeBuilderBleacher(WoDMain.MOD_ID)
+			.setInput("wod:powder")
+			.create("how_did_you_wash_concrete_powder", new ItemStack(ColorBlocks.concretePowderWhite));
+		new RecipeBuilderBleacher(WoDMain.MOD_ID)
+			.setInput("wod:concrete")
+			.create("colored_concrete_to_white", new ItemStack(ColorBlocks.concrete, 1, 0));
+		new RecipeBuilderBleacher(WoDMain.MOD_ID)
+			.setInput("wod:bed")
+			.create("colored_bed_to_white", new ItemStack(ColorItems.bedWhite));
+		new RecipeBuilderBleacher(WoDMain.MOD_ID)
+			.setInput("wod:seat")
+			.create("colored_seat_to_white", new ItemStack(ColorItems.seatWhite));
 	}
 }
