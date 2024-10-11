@@ -14,7 +14,7 @@ public class WoDPowder extends BlockPowder {
 		world.scheduleBlockUpdate(x, y, z, this.id, this.tickRate());
 		int powder = world.getBlockId(x, y, z);
 		if (world.getBlockMaterial(x, y, z - 1) == Material.water || world.getBlockMaterial(x, y, z + 1) == Material.water || world.getBlockMaterial(x - 1, y, z) == Material.water || world.getBlockMaterial(x + 1, y, z) == Material.water || world.getBlockMaterial(x, y + 1, z) == Material.water) {
-			world.setBlock(x, y, z, powder-14);
+			world.setBlock(x, y, z, powder+14);
 		}
 
 	}
