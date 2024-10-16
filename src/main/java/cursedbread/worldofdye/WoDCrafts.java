@@ -1,21 +1,31 @@
 package cursedbread.worldofdye;
 
+import goocraft4evr.nonamedyes.NoNameDyes;
 import goocraft4evr.nonamedyes.block.ModBlocks;
 import goocraft4evr.nonamedyes.crafting.RecipeBuilderBleacher;
+import goocraft4evr.nonamedyes.crafting.RecipeEntryBleacher;
 import goocraft4evr.nonamedyes.item.ModItems;
 import luke.color.ColorBlocks;
 import luke.color.ColorItems;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.data.registry.Registries;
+import net.minecraft.core.data.registry.recipe.RecipeGroup;
+import net.minecraft.core.data.registry.recipe.RecipeSymbol;
 import net.minecraft.core.item.Item;
 import net.minecraft.core.item.ItemStack;
+import turniplabs.halplibe.helper.RecipeBuilder;
 import turniplabs.halplibe.helper.recipeBuilders.RecipeBuilderShaped;
 import turniplabs.halplibe.util.RecipeEntrypoint;
+
+import static net.minecraft.core.data.registry.Registries.RECIPE_TYPES;
 
 public class WoDCrafts implements RecipeEntrypoint {
 
 	@Override
 	public void initNamespaces() {
+		RecipeBuilder.initNameSpace(WoDMain.MOD_ID);
+		RecipeBuilder.getRecipeNamespace(WoDMain.MOD_ID);
+
 		Registries.ITEM_GROUPS.register("wod:powder", Registries.stackListOf(
 			ColorBlocks.concretePowderWhite, ColorBlocks.concretePowderOrange, ColorBlocks.concretePowderMagenta,
 			ColorBlocks.concretePowderLightblue, ColorBlocks.concretePowderYellow, ColorBlocks.concretePowderLime,
