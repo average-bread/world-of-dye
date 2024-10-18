@@ -3,6 +3,7 @@ package cursedbread.worldofdye;
 import goocraft4evr.nonamedyes.NoNameDyes;
 import goocraft4evr.nonamedyes.block.ModBlocks;
 import goocraft4evr.nonamedyes.crafting.RecipeBuilderBleacher;
+import goocraft4evr.nonamedyes.crafting.RecipeEntryBleacher;
 import goocraft4evr.nonamedyes.item.ModItems;
 import luke.color.ColorBlocks;
 import luke.color.ColorItems;
@@ -18,8 +19,12 @@ import turniplabs.halplibe.helper.recipeBuilders.RecipeBuilderShaped;
 import turniplabs.halplibe.util.RecipeEntrypoint;
 
 import static goocraft4evr.nonamedyes.crafting.ModRecipes.*;
+import static net.minecraft.core.data.registry.Registries.RECIPE_TYPES;
 
 public class WoDCrafts implements RecipeEntrypoint {
+
+	public static RecipeNamespace RN;
+	public static RecipeGroup<RecipeEntryBleacher> BLEACHER;
 
 	public static Block[] nndconcrede = {
 		WoDBlocks.concretePowderCrimson,
@@ -78,9 +83,19 @@ public class WoDCrafts implements RecipeEntrypoint {
 		RecipeBuilder.getRecipeNamespace(WoDMain.MOD_ID);
 
 		RN = new RecipeNamespace();
-		Registries.RECIPES.register(WoDMain.MOD_ID, RN);
+		WORKBENCH = new RecipeGroup<>(new RecipeSymbol(new ItemStack(Block.workbench)));
+		FURNACE = new RecipeGroup<>(new RecipeSymbol(new ItemStack(Block.furnaceStoneActive)));
+		BLAST_FURNACE = new RecipeGroup<>(new RecipeSymbol(new ItemStack(Block.furnaceBlastActive)));
+		TROMMEL = new RecipeGroup<>(new RecipeSymbol(new ItemStack(Block.trommelActive)));
 		BLEACHER = new RecipeGroup<>(new RecipeSymbol(new ItemStack(ModBlocks.bleacher)));
+
+		Registries.RECIPES.register(NoNameDyes.MOD_ID, RN);
+		RN.register("furnace", FURNACE);
+		RN.register("blast_furnace", BLAST_FURNACE);
+		RN.register("workbench", WORKBENCH);
 		RN.register("bleacher", BLEACHER);
+		RN.register("trommel", TROMMEL);
+		RECIPE_TYPES.register("nonamedyes:bleaching", RecipeEntryBleacher.class);
 
 		Registries.ITEM_GROUPS.register("worldofdye:powder", Registries.stackListOf(
 			ColorBlocks.concretePowderWhite, ColorBlocks.concretePowderOrange, ColorBlocks.concretePowderMagenta,
